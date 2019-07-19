@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class MoviePage extends StatefulWidget{
   @override
@@ -48,21 +49,31 @@ class _MoviePage extends State<MoviePage> {
             crossAxisSpacing: 10.0,
             childAspectRatio: 0.7,
           ),
-          children: <Widget>[
-            new Image.network(imgUrl[0],fit: BoxFit.fill,),
-            new Image.network(imgUrl[1],fit: BoxFit.fill,),
-            new Image.network(imgUrl[2],fit: BoxFit.fill,),
-            new Image.network(imgUrl[3],fit: BoxFit.fill,),
-            new Image.network(imgUrl[4],fit: BoxFit.fill,),
-            new Image.network(imgUrl[5],fit: BoxFit.fill,),
-            new Image.network(imgUrl[6],fit: BoxFit.fill,),
-            new Image.network(imgUrl[7],fit: BoxFit.fill,),
-            new Image.network(imgUrl[8],fit: BoxFit.fill,),
-            new Image.network(imgUrl[9],fit: BoxFit.fill,),
-            new Image.network(imgUrl[10],fit: BoxFit.fill,),
-          ],
+          children: _loadImg(),
+//          <Widget>[
+//            _loadImg(),
+//            new Image.network(imgUrl[0],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[1],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[2],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[3],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[4],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[5],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[6],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[7],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[8],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[9],fit: BoxFit.fill,),
+//            new Image.network(imgUrl[10],fit: BoxFit.fill,),
+//          ],
         ),
       ),
     );
+  }
+
+  _loadImg() {
+    return imgUrl.map((url){
+      return Center(
+        child: FadeInImage.memoryNetwork(placeholder:kTransparentImage , image: url),
+      );
+    }).toList();
   }
 }

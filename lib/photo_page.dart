@@ -21,9 +21,12 @@ class _PhotoPage extends State<PhotoPage>{
     Navigator.pop(context);
     var image = await ImagePicker.pickImage(source:isTakePhoto? ImageSource.camera : ImageSource.gallery);
 
-    setState(() {
-      _images.add(image);
-    });
+    if(image != null){
+      setState(() {
+        _images.add(image);
+      });
+    }
+
   }
 
 

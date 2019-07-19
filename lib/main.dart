@@ -8,6 +8,7 @@ import 'gesture_page.dart';
 import 'res_page.dart';
 import 'launch_page.dart';
 import 'photo_page.dart';
+import 'logo_page.dart';
 
 void main()=>runApp(MyApp());
 
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget{
         'respage':(BuildContext context) => ResPage(),
         'launchpage':(BuildContext context) => LaunchPage(),
         'photo':(BuildContext context) => PhotoPage(),
+        'logo':(BuildContext context) => LogoPage(),
       },
     );
   }
@@ -112,6 +114,7 @@ class _RouterPage extends State<RouterPage>{
           _item('资源-res',ResPage(),'respage'),
           _item('打开第三方APP',LaunchPage(),'launchpage'),
           _item('拍照APP',PhotoPage(),'photo'),
+          _item('动画',LogoPage(),'logo'),
         ],
       ),
     );

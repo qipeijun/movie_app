@@ -30,6 +30,7 @@ class _LaunchPage extends State<LaunchPage> {
             children: <Widget>[
               RaisedButton(onPressed: _launchURL,child: Text('点击打开第三方APP'),),
               RaisedButton(onPressed: _openMap,child: Text('点击打开地图'),),
+              RaisedButton(onPressed: _openWx,child: Text('点击打开微信扫一扫'),),
             ],
           ),
         )
@@ -63,6 +64,17 @@ class _LaunchPage extends State<LaunchPage> {
   }
 
 
+
+
+
+  void _openWx() async{
+    const url = 'weixin://dl/scan';
+    if(await canLaunch(url)){
+      await launch(url);
+    }else{
+      throw '打开 $url 失败';
+    }
+  }
 }
 
 
